@@ -22,14 +22,16 @@ before(async () => {
   let flatLaunchpegFactory = await ethers.getContractFactory('FlatLaunchpeg')
   flatLaunchpeg = await flatLaunchpegFactory.connect(admin).deploy(69,5,5)
 
+
   startBlock = await ethers.provider.getBlockNumber()
   
 });
 
 it("solves the challenge", async function () {
 
-  let exploiterFactory = await ethers.getContractFactory('jpegSniperExploiter')
-  let exploiter = await exploiterFactory.connect(attacker).deploy(flatLaunchpeg.address,await attacker.getAddress())
+  // implement solution here
+  let hackContract_ = await ethers.getContractFactory('AttackerContract')
+  await hackContract_.connect(attacker).deploy(flatLaunchpeg.address);
 
 });
 
